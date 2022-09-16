@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cjw.dao.CourseMapper">
+    <!--多条件课程列表查询 -->
+    <select id="findCourseByCondition" parameterType="com.cjw.domain.CourseVO" resultType="com.cjw.domain.Course">
+        select * from course
+        <where>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="true">
+                and is_del !=1
+            </if>
+            <if test="courseName !=null and courseName !=''">
+                and course_name like concat('%',#{courseName},'%')
+            </if>
+
+        </where>
+    </select>
+</mapper>
