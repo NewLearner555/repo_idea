@@ -11,6 +11,14 @@ public interface TestMapper {
     List<Test> findAllTest();
     
     List<Test> findAllTest2();
+    
+    public void test11();
+    public void test21();
+    public void test31();
+    public void test41();
+    public void test51();
+    public void test61();
+    public void test71();
 
     public void test1();
     public void test2();
